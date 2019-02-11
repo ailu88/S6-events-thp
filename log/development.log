@@ -1,0 +1,589 @@
+  [1m[35m (1320.8ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (580.8ms)[0m  [1m[35mCREATE DATABASE "myapp_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (99.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (96.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190211093802)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (71.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "encrypted_password" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211093802_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211093802"]]
+  ↳ bin/rails:9
+  [1m[35m (16.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateEvents (20190211093829)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (75.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "start_date" timestamp, "duration" integer, "title" character varying, "description" text, "price" integer, "location" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211093829_create_events.rb:3
+  [1m[35m (43.6ms)[0m  [1m[35mCREATE  INDEX  "index_events_on_user_id" ON "events"  ("user_id")[0m
+  ↳ db/migrate/20190211093829_create_events.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211093829"]]
+  ↳ bin/rails:9
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateAttendances (20190211093840)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (89.9ms)[0m  [1m[35mCREATE TABLE "attendances" ("id" bigserial primary key, "stripe_customer_id" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190211093840_create_attendances.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211093840"]]
+  ↳ bin/rails:9
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-11 09:47:19.397351"], ["updated_at", "2019-02-11 09:47:19.397351"]]
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to Fixcolumnnameineventsmodel (20190211102634)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (49.6ms)[0m  [1m[35mALTER TABLE "event" RENAME COLUMN "user_id" TO "admin_id"[0m
+  ↳ db/migrate/20190211102634_fixcolumnnameineventsmodel.rb:3
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to Fixcolumnnameineventsmodel (20190211102634)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "events" RENAME COLUMN "user_id" TO "admin_id"[0m
+  ↳ db/migrate/20190211102634_fixcolumnnameineventsmodel.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER INDEX "index_events_on_user_id" RENAME TO "index_events_on_admin_id"[0m
+  ↳ db/migrate/20190211102634_fixcolumnnameineventsmodel.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211102634"]]
+  ↳ bin/rails:9
+  [1m[35m (44.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to Addcolumnstoattendance (20190211103450)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (45.9ms)[0m  [1m[35mALTER TABLE "attendances" ADD "event_id" integer[0m
+  ↳ db/migrate/20190211103450_addcolumnstoattendance.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "attendances" ADD "attendant_id" integer[0m
+  ↳ db/migrate/20190211103450_addcolumnstoattendance.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190211103450"]]
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (44.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "bere"], ["created_at", "2019-02-11 10:52:39.046070"], ["updated_at", "2019-02-11 10:52:39.046070"]]
+  [1m[35m (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-11 10:52:42.647820"], ["updated_at", "2019-02-11 10:52:42.647820"]]
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "first_name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["first_name", "elo"], ["updated_at", "2019-02-11 10:53:41.083900"], ["id", 2]]
+  [1m[35m (33.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (1.8ms)[0m  [1m[32mINSERT INTO "events" ("title", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "coucou"], ["admin_id", 1], ["created_at", "2019-02-11 10:55:07.946879"], ["updated_at", "2019-02-11 10:55:07.946879"]]
+  [1m[35m (37.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendance Create (2.2ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 10:55:56.683285"], ["updated_at", "2019-02-11 10:55:56.683285"], ["event_id", 1], ["attendant_id", 2]]
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttendance Load (0.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1[0m  [["event_id", 1]]
+  [1m[36mAttendance Load (0.4ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (1.1ms)[0m  [1m[32mINSERT INTO "events" ("title", "admin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "THE BEST"], ["admin_id", 1], ["created_at", "2019-02-11 11:11:53.194161"], ["updated_at", "2019-02-11 11:11:53.194161"]]
+  [1m[35m (34.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendance Create (1.2ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 11:12:45.919943"], ["updated_at", "2019-02-11 11:12:45.919943"], ["event_id", 2], ["attendant_id", 2]]
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttendance Load (1.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1 LIMIT $2[0m  [["event_id", 2], ["LIMIT", 11]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1[0m  [["event_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-02-11 11:14:20.613102"], ["updated_at", "2019-02-11 11:14:20.613102"]]
+  [1m[36mAttendance Create (1.0ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 11:14:20.617684"], ["updated_at", "2019-02-11 11:14:20.617684"], ["event_id", 2], ["attendant_id", 3]]
+  [1m[35m (31.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "first_name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["first_name", "aleks"], ["updated_at", "2019-02-11 11:16:11.633391"], ["id", 3]]
+  [1m[35m (313.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttendance Load (1.3ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[36mAttendance Load (0.9ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."event_id" = $1 LIMIT $2[0m  [["event_id", 2], ["LIMIT", 11]]
+  [1m[36mAttendance Load (0.9ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances" WHERE "attendances"."event_id" = $1[0m  [["event_id", 2]]
+  [1m[36mAttendance Load (1.5ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "bere"], ["created_at", "2019-02-11 11:24:15.179939"], ["updated_at", "2019-02-11 11:24:15.179939"]]
+  [1m[35m (35.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "bere"], ["created_at", "2019-02-11 11:29:15.280866"], ["updated_at", "2019-02-11 11:29:15.280866"]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "elo"], ["created_at", "2019-02-11 11:29:17.257760"], ["updated_at", "2019-02-11 11:29:17.257760"]]
+  [1m[35m (28.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (1.7ms)[0m  [1m[32mINSERT INTO "events" ("admin_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["admin_id", 5], ["created_at", "2019-02-11 11:29:45.549172"], ["updated_at", "2019-02-11 11:29:45.549172"]]
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 11:30:11.988305"], ["updated_at", "2019-02-11 11:30:11.988305"], ["event_id", 3], ["attendant_id", 5]]
+  [1m[35m (52.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "bere"], ["created_at", "2019-02-11 11:33:35.333867"], ["updated_at", "2019-02-11 11:33:35.333867"]]
+  [1m[35m (34.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["first_name", "elo"], ["created_at", "2019-02-11 11:33:46.431525"], ["updated_at", "2019-02-11 11:33:46.431525"]]
+  [1m[35m (31.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Create (1.5ms)[0m  [1m[32mINSERT INTO "events" ("admin_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["admin_id", 7], ["created_at", "2019-02-11 11:34:02.217030"], ["updated_at", "2019-02-11 11:34:02.217030"]]
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttendance Create (0.6ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 11:34:26.691662"], ["updated_at", "2019-02-11 11:34:26.691662"], ["event_id", 4], ["attendant_id", 8]]
+  [1m[35m (33.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1 LIMIT $2[0m  [["event_id", 4], ["LIMIT", 11]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAttendance Load (1.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mAttendance Create (0.5ms)[0m  [1m[32mINSERT INTO "attendances" ("created_at", "updated_at", "event_id", "attendant_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2019-02-11 11:36:40.844158"], ["updated_at", "2019-02-11 11:36:40.844158"], ["event_id", 4], ["attendant_id", 7]]
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttendance Load (1.1ms)[0m  [1m[34mSELECT "attendances".* FROM "attendances"[0m
+  [1m[36mAttendance Load (1.3ms)[0m  [1m[34mSELECT  "attendances".* FROM "attendances" WHERE "attendances"."event_id" = $1 LIMIT $2[0m  [["event_id", 4], ["LIMIT", 11]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1 LIMIT $2[0m  [["event_id", 4], ["LIMIT", 11]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "attendances" ON "users"."id" = "attendances"."attendant_id" WHERE "attendances"."event_id" = $1[0m  [["event_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (52.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Mathieu"], ["email", "mathieu@yopmail.com"], ["created_at", "2019-02-11 16:36:05.288858"], ["updated_at", "2019-02-11 16:36:05.288858"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (62.0ms)
+UserMailer#welcome_email: processed outbound mail in 117.7ms
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Mathieu"], ["email", "mathieu@yopmail.com"], ["created_at", "2019-02-11 16:38:41.529115"], ["updated_at", "2019-02-11 16:38:41.529115"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.8ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (1.2ms)
+UserMailer#welcome_email: processed outbound mail in 1288.2ms
+Sent mail to mathieu@yopmail.com (94.8ms)
+Date: Mon, 11 Feb 2019 17:38:42 +0100
+From: no-reply@monsite.fr
+To: mathieu@yopmail.com
+Message-ID: <5c61a512cca3c_502d2af98ff1c5bc3157b@pcelo.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5c61a512c789d_502d2af98ff1c5bc314c7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5c61a512c789d_502d2af98ff1c5bc314c7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+YWx1dCBNYXRoaWV1IGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PQ0KIA0KVHUgdCdlcyBpbnNjcml0IHN1ciBtb25zaXRlLmZyIGVu
+IHV0aWxpc2FudCBsJ2UtbWFpbCBzdWl2YW50IDogbWF0aGlldUB5b3BtYWls
+LmNvbS4NCiANClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQs
+IGNvbm5lY3RlLXRvaSB2aWEgOiB3d3cuZ29vZ2xlLmNvbS4NCiANCsOAIHRy
+w6hzIHZpdGUgc3VyIG1vbnNpdGUuZnIgIQ0K
+
+----==_mimepart_5c61a512c789d_502d2af98ff1c5bc314c7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Salut Mathieu et bienvenue chez nous !</h1>=0D
+    <p>=0D
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : math=
+ieu@yopmail.com.=0D
+    </p>=0D
+    <p>=0D
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : www.=
+google.com.=0D
+    </p>=0D
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_5c61a512c789d_502d2af98ff1c5bc314c7--
+
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (12.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Polo"], ["email", "polo@yopmail.com"], ["created_at", "2019-02-11 16:44:24.422120"], ["updated_at", "2019-02-11 16:44:24.422120"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (3.9ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (2.2ms)
+UserMailer#welcome_email: processed outbound mail in 413.8ms
+Sent mail to polo@yopmail.com (1182.2ms)
+Date: Mon, 11 Feb 2019 17:44:26 +0100
+From: no-reply@monsite.fr
+To: polo@yopmail.com
+Message-ID: <5c61a66adc360_511f2adf506fe5b41034@pcelo.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5c61a66ac02fa_511f2adf506fe5b410291";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5c61a66ac02fa_511f2adf506fe5b410291
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+YWx1dCBQb2xvIGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PQ0KIA0KVHUgdCdlcyBpbnNjcml0IHN1ciBtb25zaXRlLmZyIGVuIHV0
+aWxpc2FudCBsJ2UtbWFpbCBzdWl2YW50IDogcG9sb0B5b3BtYWlsLmNvbS4N
+CiANClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQsIGNvbm5l
+Y3RlLXRvaSB2aWEgOiB3d3cuZ29vZ2xlLmNvbS4NCiANCsOAIHRyw6hzIHZp
+dGUgc3VyIG1vbnNpdGUuZnIgIQ0K
+
+----==_mimepart_5c61a66ac02fa_511f2adf506fe5b410291
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Salut Polo et bienvenue chez nous !</h1>=0D
+    <p>=0D
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : polo=
+@yopmail.com.=0D
+    </p>=0D
+    <p>=0D
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : www.=
+google.com.=0D
+    </p>=0D
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_5c61a66ac02fa_511f2adf506fe5b410291--
+
+  [1m[35m (93.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Momo"], ["email", "mathieu@yopmail.com"], ["created_at", "2019-02-11 16:56:21.590643"], ["updated_at", "2019-02-11 16:56:21.590643"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (2.4ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.8ms)
+UserMailer#welcome_email: processed outbound mail in 125.5ms
+Sent mail to mathieu@yopmail.com (375.6ms)
+Date: Mon, 11 Feb 2019 17:56:21 +0100
+From: no-reply@monsite.fr
+To: mathieu@yopmail.com
+Message-ID: <5c61a935b416f_527b2b06032405d4100e3@pcelo.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5c61a935aeb0a_527b2b06032405d4997b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5c61a935aeb0a_527b2b06032405d4997b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+YWx1dCBNb21vIGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PQ0KIA0KVHUgdCdlcyBpbnNjcml0IHN1ciBtb25zaXRlLmZyIGVuIHV0
+aWxpc2FudCBsJ2UtbWFpbCBzdWl2YW50IDogbWF0aGlldUB5b3BtYWlsLmNv
+bS4NCiANClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQsIGNv
+bm5lY3RlLXRvaSB2aWEgOiB3d3cuZ29vZ2xlLmNvbS4NCiANCsOAIHRyw6hz
+IHZpdGUgc3VyIG1vbnNpdGUuZnIgIQ0K
+
+----==_mimepart_5c61a935aeb0a_527b2b06032405d4997b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Salut Momo et bienvenue chez nous !</h1>=0D
+    <p>=0D
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : math=
+ieu@yopmail.com.=0D
+    </p>=0D
+    <p>=0D
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : www.=
+google.com.=0D
+    </p>=0D
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_5c61a935aeb0a_527b2b06032405d4997b--
+
+  [1m[35m (250.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (13.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Momo"], ["email", "mathieu888@yopmail.com"], ["created_at", "2019-02-11 17:04:34.401835"], ["updated_at", "2019-02-11 17:04:34.401835"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (1.1ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.6ms)
+UserMailer#welcome_email: processed outbound mail in 70.5ms
+Sent mail to mathieu888@yopmail.com (443.1ms)
+Date: Mon, 11 Feb 2019 18:04:34 +0100
+From: no-reply@monsite.fr
+To: mathieu888@yopmail.com
+Message-ID: <5c61ab227a3a9_52fa2ade923285c0770ef@pcelo.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5c61ab2278f99_52fa2ade923285c0769f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5c61ab2278f99_52fa2ade923285c0769f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+YWx1dCBNb21vIGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PQ0KIA0KVHUgdCdlcyBpbnNjcml0IHN1ciBtb25zaXRlLmZyIGVuIHV0
+aWxpc2FudCBsJ2UtbWFpbCBzdWl2YW50IDogbWF0aGlldTg4OEB5b3BtYWls
+LmNvbS4NCiANClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQs
+IGNvbm5lY3RlLXRvaSB2aWEgOiB3d3cuZ29vZ2xlLmNvbS4NCiANCsOAIHRy
+w6hzIHZpdGUgc3VyIG1vbnNpdGUuZnIgIQ0K
+
+----==_mimepart_5c61ab2278f99_52fa2ade923285c0769f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Salut Momo et bienvenue chez nous !</h1>=0D
+    <p>=0D
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : math=
+ieu888@yopmail.com.=0D
+    </p>=0D
+    <p>=0D
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : www.=
+google.com.=0D
+    </p>=0D
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_5c61ab2278f99_52fa2ade923285c0769f0--
+
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (19.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["first_name", "Momo"], ["email", "mathieu888@yopmail.com"], ["created_at", "2019-02-11 17:11:20.556789"], ["updated_at", "2019-02-11 17:11:20.556789"]]
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (3.8ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (1.7ms)
+UserMailer#welcome_email: processed outbound mail in 222.3ms
+Sent mail to mathieu888@yopmail.com (1253.3ms)
+Date: Mon, 11 Feb 2019 18:11:20 +0100
+From: no-reply@monsite.fr
+To: mathieu888@yopmail.com
+Message-ID: <5c61acb8e8b28_539e2b2a466965b89385a@pcelo.mail>
+Subject: Bienvenue chez nous !
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5c61acb8cdb9b_539e2b2a466965b893773";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5c61acb8cdb9b_539e2b2a466965b893773
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+YWx1dCBNb21vIGV0IGJpZW52ZW51ZSBjaGV6IG5vdXMgIQ0KPT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PQ0KIA0KVHUgdCdlcyBpbnNjcml0IHN1ciBtb25zaXRlLmZyIGVuIHV0
+aWxpc2FudCBsJ2UtbWFpbCBzdWl2YW50IDogbWF0aGlldTg4OEB5b3BtYWls
+LmNvbS4NCiANClBvdXIgYWNjw6lkZXIgw6AgdG9uIGVzcGFjZSBjbGllbnQs
+IGNvbm5lY3RlLXRvaSB2aWEgOiB3d3cuZ29vZ2xlLmNvbS4NCiANCsOAIHRy
+w6hzIHZpdGUgc3VyIG1vbnNpdGUuZnIgIQ0K
+
+----==_mimepart_5c61acb8cdb9b_539e2b2a466965b893773
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Salut Momo et bienvenue chez nous !</h1>=0D
+    <p>=0D
+      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : math=
+ieu888@yopmail.com.=0D
+    </p>=0D
+    <p>=0D
+      Pour acc=C3=A9der =C3=A0 ton espace client, connecte-toi via : www.=
+google.com.=0D
+    </p>=0D
+    <p> =C3=80 tr=C3=A8s vite sur monsite.fr !=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+----==_mimepart_5c61acb8cdb9b_539e2b2a466965b893773--
+
+  [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
