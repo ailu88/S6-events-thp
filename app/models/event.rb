@@ -6,7 +6,8 @@ class Event < ApplicationRecord
 
     validates :start_date, presence: true
     validate :start_date_cannot_be_in_the_past
-    validates :duration, presence: true, value: {minimum: 3, maximum:500000}
+    validates :duration, presence: true, numericality: { only_integer: true, greater_than: 1}
+    validate :duration_is_multiple_of_5
     validates :title, presence: true, length: {minimum: 5, maximum:140}
     validates :description, presence: true, length: {minimum: 20, maximum: 1000}
     validates :price, presence: true, numericality: {greater_than: 0, less_or_equal_to: 1000}
@@ -21,8 +22,8 @@ class Event < ApplicationRecord
         end
       end
 
-    def multiple_of_5
-        if duration % 5 == 0
+    def duration_is_multiple_of_5
+        if duration.to_f % 5 == 0
             return true
         else 
             return false
