@@ -1,15 +1,83 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+
+
     <title>Myapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Evenbrite</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
   </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Evenbrite</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" <%= link_to "Home", root_path %> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to "New event", new_event_path %> </a>
+          </li>
+          <% if user_signed_in? %>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link" <%= link_to "LogIn", new_user_session_path %> </a>
+            </li>
+          <% end %>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to "My profile", root_path %>  </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to "LogOut", root_path %> </a>
+          <% else %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+    </main>
+
+    <footer class="container bg-dark">
+      <p>&copy; THP 2019</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
     <%= yield %>
   </body>
+
 </html>
