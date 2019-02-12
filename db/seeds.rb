@@ -21,7 +21,7 @@ puts "\n\n"
 puts "SEEDING NEW DB\n"
 
 puts "Seeding users"
-20.times do 
+5.times do 
 	User.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -33,7 +33,7 @@ puts "users seeded\n"
 
 
 puts "Seeding events"
-10.times do
+3.times do
   Event.create(
     start_date: Faker::Date.forward(400),
     duration: 5*rand(1..20),
@@ -48,7 +48,7 @@ puts "events seeded\n"
 
 
 puts "Seeding attendances"
-50.times do 
+10.times do 
   Attendance.create(
     event: Event.all.sample,
     attendant: User.all.sample,
