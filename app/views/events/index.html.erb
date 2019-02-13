@@ -23,18 +23,22 @@
                 <% @events.each do |event| %>
             
                     <div class="card" style = "margin-bottom:25px" >
-                <div class="card-header" >
-                    Location : <%= event.location %>
-                    <br>
-                    Duration : <%= event.duration %> min
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= event.title %></h5>
-                    <p class="card-text"><%= event.description %></p>
-                    <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
-                </div>
-                </div>
-                <% end %>
+                        <div class="card-header" >
+                            Location : <%= event.location %><br>
+                            Duration : <%= event.duration %> min
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= event.title %></h5>
+                            <p class="card-text"><%= event.description %></p>
+
+                                <% if user_signed_in? %>
+            
+                                <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
+                                <% else %>
+                                <% end %>
+                        </div>
+                     </div>
+                 <% end %>
 
             </div> <!-- /container -->
 

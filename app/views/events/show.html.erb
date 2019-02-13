@@ -2,6 +2,7 @@
   <head>
     <title>Show Event</title>
   <body> 
+  
   <div class="container">
       <div class="jumbotron text-center text-primary bg-light">
       <h5> Your event</h5> 
@@ -38,15 +39,14 @@
 
         </table>
 </div>
-<% if @event.admin.id == current_user.id %>
+          
+          <% if @event.admin.id == current_user.id %>
 
-
-<% else %>
+          <% else %>
 <center> <div>
 <a class="btn btn-primary" <%= link_to "Subscribe to Event", {:controller => "charges", :action => "new", :event_id => @event.id} %> </a>
 </div> </center>
- 
-<% end %>
+ <% end %>
 
 </body>
 </html>
