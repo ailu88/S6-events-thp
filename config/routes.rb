@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 
   resources :events do 
     resources :charges, only: [:new, :create]
-  end 
-
-  resources :attendances
+    resources :attendances, only: [:show]
+  end
 
   resources :users
 

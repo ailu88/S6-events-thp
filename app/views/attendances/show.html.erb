@@ -5,6 +5,9 @@
   <div class="container">
       <div class="jumbotron text-center bg-light">
       <h5> Congratulations! Attendance confirmed to event.</h5> 
+      <% attendance = Attendance.find(params[:id]) %>
+      <h5> Reservation N°: <%= attendance.id %> </h5> 
+      <h5> Attendant: <%= current_user.email %> </h5> 
       </div>
 
 
