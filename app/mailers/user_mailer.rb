@@ -9,6 +9,6 @@ class UserMailer < ApplicationMailer
       @url  = 'https://besteventsintown.herokuapp.com/' 
   
       # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-      mail(to: @user.email, subject: 'Bienvenue chez Bestevent !') <i class="fas fa-cat"></i>
+      mail(to: @user.email, subject: 'Bienvenue chez Bestevent !')
     end
 end
