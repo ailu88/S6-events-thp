@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+  before_action :user_match, only: [:show]
 
     def index
     	@users = User.all
@@ -29,5 +31,11 @@ class UsersController < ApplicationController
 	    @user.destroy
 	    redirect_to users_path
   end
+      
+  def user_match
+      if current_user != User.find(params[:id])
+        redirect_to root_path
+      end
+    end
 
 end
