@@ -55,7 +55,7 @@
             <a class="nav-link" <%= link_to "My profile", root_path %>  </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <%= link_to "LogOut", root_path %> </a>
+            <a class="nav-link" <%= link_to "LogOut", destroy_user_session_path, method: :delete %> </a>
           <% else %>
           <% end %>
         </ul>
