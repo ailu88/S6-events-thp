@@ -11,7 +11,6 @@
         <table class="table">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="row">#</th>
                   <th scope="row">Admin</th>
                   <th scope="row">Title</th>
                   <th scope="row">Description</th>
@@ -25,7 +24,6 @@
                 <tbody>
 
                   <tr>
-                    <th scope="col"> # </th>
                     <td> <%= @event.admin.email %></td>
                     <td> <%= @event.title %> </td>
                     <td> <%= @event.description %> </td>
@@ -39,7 +37,12 @@
                 </tbody>
 
         </table>
-
 </div>
+
+<center> <div>
+<a class="btn btn-primary" <%= link_to "Subscribe to Event", {:controller => "charges", :action => "new", :event_id => @event.id} %> </a>
+</div> </center>
+
+
 </body>
 </html>
