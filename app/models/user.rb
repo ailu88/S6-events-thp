@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
     # removed following line because mailer made HEROKU bug
-    # after_create :welcome_send 
+     after_create :welcome_send 
     
     has_many :attendances
     has_many :attending_events, foreign_key: 'attendant_id', class_name: "Event"

@@ -7,6 +7,9 @@ Eventbright est une version minimaliste d’Eventbrite, un site qui propose à s
 - rspec pour faire passer les tests de nos models (note: des specs ont été automatiquement générés pour UserMailer, à ignorer)
 - Jouez avec la gem letter opener ou entrez vous propres clés sendgrid afin d’envoyer des welcome emails.
 
-# Créatrices
+# Créateurs
 - @Eloïse
-- @Bérénice
+- @Mathieu
+
+# Production
+<a href="https://besteventsintown.herokuapp.com/">Version en production</a>

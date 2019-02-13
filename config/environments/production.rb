@@ -84,7 +84,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   # removed following line because mailer made HEROKU bug
-  # config action_mailer default_url_options = { :host => 'besteventsintown.herokuapp.com'}
+   config action_mailer default_url_options = { :host => 'besteventsintown.herokuapp.com'}
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
