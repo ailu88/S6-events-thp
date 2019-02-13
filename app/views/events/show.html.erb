@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Show Event</title>
+  <body> 
+  <div class="container">
+      <div class="jumbotron text-center text-primary bg-light">
+      <h5> Your event</h5> 
+      <h6> Info about event:</h6>
+      </div>
+
+        <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="row">#</th>
+                  <th scope="row">Admin</th>
+                  <th scope="row">Title</th>
+                  <th scope="row">Description</th>
+                  <th scope="row">Start Date</th>
+                  <th scope="row">Duration</th>
+                  <th scope="row">Location</th>
+                  <th scope="row">Price</th>
+                </tr>
+              </thead>
+
+                <tbody>
+
+                  <tr>
+                    <th scope="col"> # </th>
+                    <td> <%= @event.admin.email %></td>
+                    <td> <%= @event.title %> </td>
+                    <td> <%= @event.description %> </td>
+                    <td> <%= @event.start_date %> </td>
+                    <td> <%= @event.duration %> </td>
+                    <td> <%= @event.location %> </td>
+                    <td> <%= @event.price %> </td>
+                    
+                  </tr>
+              
+                </tbody>
+
+        </table>
+
+</div>
+</body>
+</html>

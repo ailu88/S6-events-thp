@@ -1,0 +1,41 @@
+<html>
+    <head>
+    </head>
+
+
+    <body>
+      <center>
+          <div class="jumbotron col-6">
+              <%= form_tag url_for(action: 'create'), method: "post" do %>
+                <div class="field">
+                  <%= label_tag 'Title' %>
+                  <%= text_field_tag 'title', @event.title %><br>
+                </div>
+                <div class="field">
+                  <%= label_tag 'Description' %>
+                  <%= text_area_tag 'description', @event.description %><br>
+                </div>
+                <div class="field">
+                  <%= label_tag 'Location' %>
+                  <%= text_field_tag 'location', @event.location %><br>
+                </div>
+                 <div class="field">
+                  <%= label_tag 'Start date (dd/mm/yyyy)' %>
+                  <%= text_field_tag 'start_date', @event.start_date %><br>
+                </div>
+                <div class="field">
+                  <%= label_tag 'Duration (in minutes - must be a multiple of 5)' %>
+                  <%= text_field_tag 'duration', @event.duration %><br>
+                </div>
+              <div class="field">
+                  <%= label_tag 'Price (€)' %>
+                  <%= text_field_tag 'price', @event.price %><br>
+                </div>
+                <div class="actions">
+                  <%= submit_tag "Create Event" %>
+                </div>
+                    <% end %>
+          </div>
+      </center>
+    </body>
+</html>

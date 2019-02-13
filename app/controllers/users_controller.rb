@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-    	@users = Event.all
+    	@users = User.all
     end
 
   def show
