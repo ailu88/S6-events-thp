@@ -1,49 +1,12 @@
 <html>
-    <head>
-    </head>
+  <head>
+    <title>Show Event</title>
+  <body> 
+  <div class="container">
+      <div class="jumbotron text-center bg-light">
+      <h5> Congratulations! Attendance confirmed to event.</h5> 
+      </div>
 
 
-    <body>
-        <p> About you : <%= @user.email%>        
-        </p>
-
-        <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="row">#</th>
-                  <th scope="row">Admin</th>
-                  <th scope="row">Title</th>
-                  <th scope="row">Description</th>
-                  <th scope="row">Start Date</th>
-                  <th scope="row">Duration</th>
-                  <th scope="row">Location</th>
-                  <th scope="row">Price</th>
-                </tr>
-              </thead>
-
-                <tbody>
-
-                  <tr>
-                    <th scope="col"> # </th>
-                    <td> <%= @event.admin.email %></td>
-                    <td> <%= @event.title %> </td>
-                    <td> <%= @event.description %> </td>
-                    <td> <%= @event.start_date %> </td>
-                    <td> <%= @event.duration %> </td>
-                    <td> <%= @event.location %> </td>
-                    <td> <%= @event.price %> </td>
-                    
-                  </tr>
-
-                  
-              
-                </tbody>
-
-        </table>
-
-        <center> <div>
-        <%= link_to "Proceed to payment", {:controller => "charges", :action => "new", :event_id => @event.id} %>
-        </div> </center>
-
-    </body>
+</body>
 </html>
