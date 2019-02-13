@@ -11,40 +11,10 @@
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
             <div class="container">
-            <h1 class="display-3">Welcome to Eventbrite ! </h1>
-                <h3>Voici tous les événements : </h3>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <h1 class="display-3">Welcome to Eventbrite ! </h1> <br>
+                <h3>Découvrez les événements près de chez vous : </h3>
             </div>
         </div>  <!-- /jumbotron -->
-
-
-       
-            <div class="container">  <!-- A supprimer -->
-
-                        <ul>
-                <% if user_signed_in? %>
-                    <li>
-                    <%= link_to "Sign out", root_path, method: :delete %>
-                    </li>
-                    <li>
-                    Voici ton email : <%= current_user.email %>
-                    </li>
-                    <li>
-                    <%= link_to "Edit email / password", edit_user_registration_path %>
-                    </li>
-                    <li>
-                    <%= link_to "Sign out", root_path, method: :destroy %>
-                    </li>
-                <% else %>
-                    <li>    
-                    <%= link_to "Sign in", new_user_session_path %>
-                    </li>
-                    <li>
-                    <%= link_to "Sign up", new_user_registration_path %>
-                    </li>
-                <% end %>
-                </ul>
-            </div>  <!-- /A supprimer -->
 
 
 

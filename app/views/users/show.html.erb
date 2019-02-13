@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Welcome to Eventbrite, @user.first_name @user.last_name !</title>
+    <title>Welcome to Eventbrite, <%= @user.email %> ! </title>
   </head>
 
     <body> 
@@ -13,14 +13,15 @@
             <div class="container">
             <h1 class="display-3">Welcome to Eventbrite, <% @user.email %> </h1> <br>
 
-                <p>Ton nom : <% @user.last_name %> </p>
-                <p>Ton prénom : <% @user.first_name %> </p>
-                <p>Ton email : <% @user.email %> </p>
-                <p>Ta date d'inscription : <% @user.created_at %> </p> <br>
+                <p>Ton nom : <%= @user.email %> </p>
+                <p>Ton prénom : <%= @user.email %> </p>
+                <p>Ton email : <%= @user.email %> </p>
+                <p>Ta date d'inscription : <%= @user.created_at %> </p> <br>
+                <p> <%= link_to "Edit email / password", edit_user_registration_path %> </p> <br>
 
 
                 <h3>Voici tous les événements dont tu es administrateur : </h3>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            
             </div>
         </div>  <!-- /jumbotron -->
 
