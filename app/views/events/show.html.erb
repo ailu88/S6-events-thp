@@ -12,7 +12,7 @@
   <p>=== The picture for this event is missing ===</p>
 <% end %>
   <% if @event.admin.id == current_user.id %>
-  <h6>Change picture:</h6>
+  <h6>Upload or change picture:</h6>
 <%= form_tag event_avatars_path(@event), multipart: true do %>
   <%= file_field_tag :avatar %>
   <%= submit_tag "Update file" %>
