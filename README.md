@@ -10,8 +10,11 @@ Eventbright est une version minimaliste d’Eventbrite, un site qui propose à s
 # Créateurs
 - @Eloïse
 - @Mathieu
+- @Béré
+- @PoloPolgba
 
 # Production
 <a href="https://besteventsintown.herokuapp.com/">Version en production</a>
 
 YEAH
+https://giphy.com/gifs/yay-eZvF8Stnyci2s
