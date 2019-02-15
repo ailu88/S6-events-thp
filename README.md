@@ -15,7 +15,8 @@ BestEventsInTow est une version minimaliste d’Eventbrite, un site qui propose 
 
 # Production
 <a href="https://besteventsintown.herokuapp.com/">BestEventsInTown.herokuapp.com</a>
-Rejoignez-nous vite sur la communauté BestEventsInTown !
+
+# Rejoignez-nous vite sur la communauté BestEventsInTown !
 
 ![Alt Text](https://media.giphy.com/media/eZvF8Stnyci2s/giphy.gif)
 
