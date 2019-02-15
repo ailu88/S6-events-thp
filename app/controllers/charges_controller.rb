@@ -29,7 +29,7 @@ class ChargesController < ApplicationController
         :currency    => 'eur'
       )
 
-      @attendance = Attendance.create(attendant_id: attendant_id, event_id: event_id)
+      @attendance = Attendance.create(attendant_id: attendant_id, event_id: event_id, stripe_customer_id: params[:stripeToken])
       redirect_to controller: "attendances", action: "show", id: @attendance.id
     
     rescue Stripe::CardError => e

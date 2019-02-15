@@ -12,7 +12,6 @@ class User < ApplicationRecord
     
     has_many :managed_events, foreign_key: 'admin_id', class_name: "Event"
 
-    
 
     def welcome_send
       UserMailer.welcome_email(self).deliver_now
