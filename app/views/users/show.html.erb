@@ -1,53 +1,27 @@
-<html>
-  <head>
-    <title>Welcome to Eventbrite, <%= @user.email %> ! </title>
-  </head>
-
-    <body> 
-
-
-        <main role="main">
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
+<section>
             <div class="container">
-            <h1 class="display-3">Welcome to Eventbrite, <% @user.email %> </h1> <br>
-
-                <p>Ton nom : <%= @user.email %> </p>
-                <p>Ton prénom : <%= @user.email %> </p>
-                <p>Ton email : <%= @user.email %> </p>
-                <p>Ta date d'inscription : <%= @user.created_at %> </p> <br>
-                <p> <%= link_to "Edit email / password", edit_user_registration_path %> </p> <br>
-
-
-                <h3>Voici tous les événements dont tu es administrateur : </h3>
-            
-            </div>
-        </div>  <!-- /jumbotron -->
-
-            
-            <div class="container">  <!-- container -->
-        
-                <% @events.each do |event| %>
-            
-                    <div class="card" style = "margin-bottom:25px" >
-                <div class="card-header" >
-                    Location : <%= event.location %>
-                    <br>
-                    Duration : <%= event.duration %> min
+                    <p class="display-2">Welcome to Eventbrite <%= @user.first_name %> <%= @user.last_name %></p>
+                    <p>Ton nom : <%= @user.last_name %> </p>
+                    <p>Ton prénom : <%= @user.first_name %> </p>
+                    <p>Ton email : <%= @user.email %> </p>
+                    <p>Ta date d'inscription : <%= @user.created_at %> </p>
+                    <p> <%= link_to "Edit email / password", edit_user_registration_path %> </p>
+                    <h3>Voici tous les événements dont tu es administrateur : </h3>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= event.title %></h5>
-                    <p class="card-text"><%= event.description %></p>
-                    <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
-                </div>
+                <div class="container">  <!-- container --> 
+                    <% @events.each do |event| %>
+                <div class="card" style = "margin-bottom:25px" >
+                    <div class="card-header" >
+                        <a>Location : <%= event.location %></a><br/>
+                        <a>Duration : <%= event.duration %> min</a><br/>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= event.title %></h5>
+                        <p class="card-text"><%= event.description %></p>
+                        <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
+                    </div>
                 </div>
                 <% end %>
 
-            </div> <!-- /container -->
-
-    </main>
-
-    </body>
-
-</html>
+            </div> 
+</section>

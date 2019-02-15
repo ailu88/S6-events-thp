@@ -1,50 +1,28 @@
-<html>
-  <head>
-    <title>Welcome to Eventbrite !</title>
-  </head>
-
-    <body> 
-
-
-        <main role="main">
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
-            <h1 class="display-3">Welcome to Eventbrite ! </h1> <br>
-                <h3>Découvrez les événements près de chez vous : </h3>
+<!-- Header -->
+  <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome to Eventbrite !</div>
+                <div class="intro-heading text-uppercase">Découvrez les événements près de chez vous</div> 
             </div>
-        </div>  <!-- /jumbotron -->
-
-
-
-            <div class="container">  <!-- container -->
-        
-                <% @events.each do |event| %>
-            
-                    <div class="card" style = "margin-bottom:25px" >
-                        <div class="card-header" >
-                            Location : <%= event.location %><br>
-                            Duration : <%= event.duration %> min <br>
-                            Admin : <%= event.admin.email %>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><%= event.title %></h5>
-                            <p class="card-text"><%= event.description %></p>
-
-                                <% if user_signed_in? %>
-            
-                                <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
-                                <% else %>
-                                <% end %>
-                        </div>
-                     </div>
-                 <% end %>
-
-            </div> <!-- /container -->
-
-    </main>
-
-    </body>
-
-</html>
+        </div>
+  </header>
+    <div class="container">  <!-- container -->
+            <% @events.each do |event| %>
+            <div class="card" style = "margin-bottom:25px" >
+                <div class="card-header" >
+                   <p> Location : <%= event.location %></p>
+                   <p> Duration : <%= event.duration %> min </p>
+                   <p> Admin : <%= event.admin.first_name %></p>
+                </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= event.title %></h5>
+                        <p class="card-text"><%= event.description %></p>
+                        <% if user_signed_in? %>
+                        <a class="btn btn-primary" <%= link_to "Go to event page", event_path(event) %> </a>
+                            <% else %>
+                            <% end %>
+                    </div>
+            </div>
+                        <% end %>
+    </div> 
