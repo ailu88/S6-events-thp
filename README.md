@@ -1,5 +1,5 @@
 # A propos de BestEventsInTown
-BestEventsInTow est une version minimaliste d’Eventbrite, un site qui propose à ses utilisateurs de rejoindre événements. Sont disponibles pour l’instant les tables User, Event, et Attendance. Chaque model dispose de son spec et le seed est prêt.
+BestEventsInTow est une version minimaliste d’Eventbrite, un site qui propose à ses utilisateurs de créer et de rejoindre des événements.
 
 # Instructions
 - git clone, bundle install, puis rails db:create db:migrate db:seed. 
