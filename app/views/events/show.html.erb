@@ -46,9 +46,14 @@
             </div> </center>
 
           <% else %>
-            <center> <div>
-            <a class="btn btn-primary" <%= link_to "Subscribe to Event", {:controller => "charges", :action => "new", :event_id => @event.id} %> </a>
-            </div> </center>
+
+            <% if @event.current_user_is_already_attendant?(current_user.id) == false %>
+                <center> <div>
+                <a class="btn btn-primary" <%= link_to "Subscribe to Event", {:controller => "charges", :action => "new", :event_id => @event.id} %> </a>
+                </div> </center>
+            <% else %>
+            <% end %>
+
           <% end %>
 
 </body>
