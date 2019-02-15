@@ -1,5 +1,5 @@
-# A propos d’Eventbright
-Eventbright est une version minimaliste d’Eventbrite, un site qui propose à ses utilisateurs de rejoindre événements. Sont disponibles pour l’instant les tables User, Event, et Attendance. Chaque model dispose de son spec et le seed est prêt.
+# A propos de BestEventsInTown
+BestEventsInTow est une version minimaliste d’Eventbrite, un site qui propose à ses utilisateurs de créer et de rejoindre des événements.
 
 # Instructions
 - git clone, bundle install, puis rails db:create db:migrate db:seed. 
@@ -10,6 +10,13 @@ Eventbright est une version minimaliste d’Eventbrite, un site qui propose à s
 # Créateurs
 - @Eloïse
 - @Mathieu
+- @Béré
+- @PoloPolgba
 
 # Production
-<a href="https://besteventsintown.herokuapp.com/">Version en production</a>
+<a href="https://besteventsintown.herokuapp.com/">BestEventsInTown.herokuapp.com</a>
+
+# Rejoignez-nous vite sur la communauté BestEventsInTown !
+
+![Alt Text](https://media.giphy.com/media/eZvF8Stnyci2s/giphy.gif)
+

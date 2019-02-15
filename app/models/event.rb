@@ -13,6 +13,13 @@ class Event < ApplicationRecord
     validates :price, presence: true, numericality: {greater_than: 0, less_or_equal_to: 1000}
     validates :location, presence: true
 
+    def current_user_is_already_attendant?(current_user_id)
+        if Attendance.where(attendant_id: current_user_id) != nil
+            return true
+        else
+            return false
+        end
+    end 
 
     def start_date_cannot_be_in_the_past
         errors.add(:start_date, "can't be in the past") if
@@ -20,8 +27,8 @@ class Event < ApplicationRecord
     end
 
     def duration_is_multiple_of_5
-            errors.add(:duration, "is multiple of 5") if
-            duration.to_f % 5 != 0
+        errors.add(:duration, "is multiple of 5") if
+        duration.to_f % 5 != 0
     end
 
 end
