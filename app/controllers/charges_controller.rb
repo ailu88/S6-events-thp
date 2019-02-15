@@ -15,6 +15,7 @@ class ChargesController < ApplicationController
 
       # Amount in cents
       @amount = @event.price
+      @amount_in_cents = @amount * 100
     
       customer = Stripe::Customer.create(
         :email => params[:stripeEmail],
@@ -23,7 +24,7 @@ class ChargesController < ApplicationController
     
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => @amount,
+        :amount      => @amount_in_cents,
         :description => 'Price Event',
         :currency    => 'eur'
       )
