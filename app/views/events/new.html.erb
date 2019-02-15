@@ -6,7 +6,7 @@
     <body>
       <center>
           <div class="jumbotron col-6">
-              <%= form_tag url_for(action: 'create'), method: "post" do %>
+              <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
                 <div class="field">
                   <%= label_tag 'Title' %>
                   <%= text_field_tag 'title', @event.title %><br>
@@ -30,6 +30,10 @@
               <div class="field">
                   <%= label_tag 'Price (€)' %>
                   <%= text_field_tag 'price', @event.price %><br>
+                </div>
+              <div class="field">
+                  <%= label_tag 'Image' %>
+                  <%= file_field_tag :avatar %><br>
                 </div>
                 <div class="actions">
                   <%= submit_tag "Create Event" %>

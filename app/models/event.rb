@@ -4,6 +4,8 @@ class Event < ApplicationRecord
     has_many :attendances
     has_many :attendants, class_name: "User", through: :attendances
 
+    has_one_attached :avatar
+
     validates :start_date, presence: true
     validate :start_date_cannot_be_in_the_past
     validates :duration, presence: true, numericality: { only_integer: true, greater_than: 1}
@@ -12,7 +14,9 @@ class Event < ApplicationRecord
     validates :description, presence: true, length: {minimum: 20, maximum: 1000}
     validates :price, presence: true, numericality: {greater_than: 0, less_or_equal_to: 1000}
     validates :location, presence: true
-
+    
+    
+    
 
     def start_date_cannot_be_in_the_past
         errors.add(:start_date, "can't be in the past") if

@@ -5,10 +5,20 @@
   
   <div class="container">
       <div class="jumbotron text-center text-primary bg-light">
-      <h5> Your event</h5> 
-      <h6> Info about event:</h6>
-      </div>
-
+      <h5>Infos about the event</h5> 
+<%if @event.avatar.attached?%>
+  <%= image_tag @event.avatar, alt: 'avatar' %>
+<%else%>
+  <p>=== The picture for this event is missing ===</p>
+<% end %>
+  <% if @event.admin.id == current_user.id %>
+  <h6>Change picture:</h6>
+<%= form_tag event_avatars_path(@event), multipart: true do %>
+  <%= file_field_tag :avatar %>
+  <%= submit_tag "Update file" %>
+<%end%>
+<%end%>
+    </div>
         <table class="table">
               <thead class="thead-dark">
                 <tr>
