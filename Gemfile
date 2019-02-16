@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'stripe'
+gem 'faker'
 
 
 # Use ActiveStorage variant
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
@@ -71,7 +71,6 @@ group :test do
 end
 
 group :production do
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
