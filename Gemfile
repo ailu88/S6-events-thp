@@ -72,6 +72,7 @@ end
 
 group :production do
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
